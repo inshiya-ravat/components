@@ -1,0 +1,25 @@
+.container{
+    background-color: black;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.light{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem ;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green;
+}
+.off{
+    background-color: grey;
+}

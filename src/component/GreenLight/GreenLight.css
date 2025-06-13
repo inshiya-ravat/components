@@ -1,0 +1,16 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4,200px);
+}
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: #f5f5dc;
+    border: 1px solid black;
+}
+.empty{
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border: none;
+}

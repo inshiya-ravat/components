@@ -7,6 +7,7 @@ import Otp from "./component/OTP/Otp";
 import SelectiveGrid from "./component/SelectiveGrid/SelectiveGrid";
 import TrafficSignal from "./component/TrafficSignal/TrafficSignal";
 import GymAttendance from "./component/GymAttendance/GymAttendance";
+import reactImg from '../src/assets/react.svg';
 
 function App() {
   const shape = [
@@ -30,6 +31,11 @@ function App() {
         accept=".jpg,.png"
         maxSize={5 * 1024 * 1024}
         onUpload={(files) => console.log(files)}
+        FileWrapper={
+          ({children})=><button>{children}</button>
+        }
+        inputStyle="custom-input"
+        inputLabel={<img src={reactImg} alt="label"/>}
       />
       <Otp length={4}/>
       <TrafficSignal/>

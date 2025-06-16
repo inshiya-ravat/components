@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import styles from "./Otp.module.css";
 
 interface Props {
   length: number;
@@ -24,10 +25,19 @@ const Otp = ({ length }: Props) => {
       }
     }
   }
+  function handlePaste(e:React.ClipboardEvent<HTMLInputElement>){
+    e.preventDefault();
+    const otpString = (e.clipboardData || window.Clipboard).getData("text");
+    const otpArray = otpString.split("");
+    for(let i=0;i<otpArray.length;i++){
+      inputRefs.current[i].value = otpArray[i];
+    }
+  }
   return (
     <>
       {arr.map((inputEl, index) => (
         <input
+          className={styles.inputField}
           autoFocus={index === 0}
           ref={(refer) => {
             if (refer) {
@@ -35,6 +45,7 @@ const Otp = ({ length }: Props) => {
             }
           }}
           key={index}
+          onPaste={handlePaste}
           onChange={() => handleChange(index)}
           onKeyDown={(e)=>handleKeyDown(e,index)}
         />

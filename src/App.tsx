@@ -31,7 +31,7 @@ function App() {
         maxSize={5 * 1024 * 1024}
         onUpload={(files) => console.log(files)}
       />
-      <Otp length={4}/>
+      <Otp length={4} prefilled="1234"/>
       <TrafficSignal/>
       <SelectiveGrid/>
       <GymAttendance/>

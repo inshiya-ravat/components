@@ -8,9 +8,20 @@ const Otp = ({ length }: Props) => {
   const arr = Array.from({ length });
   function handleChange(index: number) {
     if (index+1 >= length) {
-      alert('wrong otp!!!!')
+      return;
     } else {
       inputRefs.current[index + 1].focus();
+    }
+  }
+  function handleKeyDown(e:React.KeyboardEvent<HTMLInputElement>,index:number){
+    if(e.key === "Backspace"){
+      if (index-1 < 0) {
+       return;
+      } else {
+        e.preventDefault();
+        inputRefs.current[index].value = "";
+        inputRefs.current[index-1].focus();
+      }
     }
   }
   return (
@@ -21,11 +32,11 @@ const Otp = ({ length }: Props) => {
           ref={(refer) => {
             if (refer) {
               inputRefs.current[index] = refer;
-              console.log(inputRefs.current);
             }
           }}
           key={index}
           onChange={() => handleChange(index)}
+          onKeyDown={(e)=>handleKeyDown(e,index)}
         />
       ))}
     </>

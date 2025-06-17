@@ -7,8 +7,7 @@ import Otp from "./component/OTP/Otp";
 import SelectiveGrid from "./component/SelectiveGrid/SelectiveGrid";
 import TrafficSignal from "./component/TrafficSignal/TrafficSignal";
 import GymAttendance from "./component/GymAttendance/GymAttendance";
-import reactImg from '../src/assets/react.svg';
-import Avatar from "./component/Avatar/Avatar";
+import OfflineAvatar from "./component/Avatar/Avatar";
 
 function App() {
   const shape = [
@@ -41,7 +40,7 @@ function App() {
       <TrafficSignal/>
       <SelectiveGrid/>
       <GymAttendance/>
-      <Avatar/>
+      <OfflineAvatar/>
     </>
   );
 }

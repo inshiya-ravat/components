@@ -3,6 +3,7 @@ import FileUploader from "../FileUploader/FileUploader"
 import avatar from '../../assets/avatar.svg';
 import plus from '../../assets/plus.svg';
 import styles from './Avatar.module.css';
+import OfflineHOC from "../../DesignPattens/HOC/OfflineHOC";
 
 const Avatar = () => {
     const [profile,setProfile] = useState(avatar)
@@ -25,4 +26,6 @@ const Avatar = () => {
   )
 }
 
-export default Avatar
+const OfflineAvatar = OfflineHOC(Avatar);
+export default OfflineAvatar;
+

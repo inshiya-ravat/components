@@ -6,14 +6,15 @@ import styles from './Avatar.module.css';
 import OfflineHOC from "../../DesignPattens/HOC/OfflineHOC";
 
 const Avatar = () => {
-    const [profile,setProfile] = useState(avatar)
+    const [profile,setProfile] = useState<File|undefined>()
     function handleUpload(files:FileList | null){
         if(files){
-            const reader = new FileReader();
-            reader.readAsDataURL(files[0]);
-            reader.onload = () => {
-                setProfile(reader.result as string);
-            }
+            // const reader = new FileReader();
+            // reader.readAsDataURL(files[0]);
+            // reader.onload = () => {
+            //     setProfile(reader.result as string);
+            // }
+            setProfile(files[0])
         }
     }
   return (
@@ -21,7 +22,7 @@ const Avatar = () => {
         FileWrapper={({children})=><button className={styles.avatarBtn}>{children}<img className={styles.plus} src={plus} alt="plus"/></button>}
         accept=".jpeg,.jpg,.png"
         onUpload={(files)=>handleUpload(files)}
-        inputLabel={<img src={profile} className={styles.avatar} alt="profile picture"/>}
+        inputLabel={<img src={profile === undefined ? avatar : URL.createObjectURL(profile)} className={styles.avatar} alt="profile picture"/>}
     />
   )
 }
